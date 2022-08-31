@@ -19,11 +19,13 @@ const contactContent =
 
 const app = express();
 
-// app.set("views", __dirname + "/views");
+//Using template engines with Express
 app.set("view engine", "ejs");
 
+//Node.js body parsing middleware with Express
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//Serving static files in Express
 app.use(express.static(__dirname + "/public"));
 
 // Home Page
@@ -50,7 +52,7 @@ app.get("/contact", (req, res) => {
   res.render("contact", { contactContent: contactContent });
 });
 
-// Compose Page111 & PostSchema & Model
+//Moongose Connection & Schema & Model
 const postSchema = new mongoose.Schema({
   title: String,
   content: String,
@@ -58,6 +60,7 @@ const postSchema = new mongoose.Schema({
 
 const Post = mongoose.model("Post", postSchema);
 
+//compose page
 app.get("/compose", (req, res) => {
   res.render("compose");
 });
