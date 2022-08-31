@@ -34,7 +34,6 @@ app.get("/", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(docs);
       res.render("home", {
         homeContent: homeStartingContent,
         posts: docs,
@@ -87,7 +86,6 @@ app.get("/posts/:postId", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(requestedPostId + docs);
       res.render("./post", {
         title: docs.title,
         content: docs.content,
